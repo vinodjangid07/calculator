@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="black">
+    <title>Calculator</title>
+    <link rel="icon" type="image/x-icon" href="src/favicon2.webp">
+    <link rel="stylesheet" href="style.css">
+     <!-- fontawesome -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <!-- google font -->
+     <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Orbitron">
+</head>
+<body>
+    <div class="main-container">
+        <div class="display-container">
+            <input type="text" name="screen" class="screen">
+        </div>
+        <div class="button-container">
+            <div class="button-row">
+                <button class="button clear light">C</button>
+                <button class="button light">DEL</button>
+                <button class="button light">/</button>
+            </div>
+            <div class="button-row">
+                <button class="button">7</button>
+                <button class="button">8</button>
+                <button class="button">9</button>
+                <button class="button light">*</button>
+            </div>
+            <div class="button-row">
+                <button class="button">4</button>
+                <button class="button">5</button>
+                <button class="button">6</button>
+                <button class="button light">-</button>
+            </div>
+            <div class="button-row">
+                <button class="button">1</button>
+                <button class="button">2</button>
+                <button class="button">3</button>
+                <button class="button light">+</button>
+            </div>
+            <div class="button-row">
+                <button class="button">00</button>
+                <button class="button">0</button>
+                <button class="button">.</button>
+                <button class="button light equalsto">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    let data ="";
+    let buttons = document.querySelectorAll('.button');
+    let operators = ["+", "-", ".", "/","*","%"];
+    Array.from(buttons).forEach((button)=>{
+        button.addEventListener('click',(current)=>{
+            if (current.target.innerHTML == '=') {
+        data = eval(data);
+        document.querySelector('input').value = data;
+    }
+    else if(current.target.innerHTML == 'DEL'){
+        data= data.slice(0, -1);
+        document.querySelector('input').value = data;
+    }
+    else if(current.target.innerHTML == 'C'){
+        data="";
+        document.querySelector('input').value = data;
+    }
+    else if(current.target.innerHTML == '.' && data.slice(-1) == '.'){
+        return false;
+    }
+    else if(current.target.innerHTML == '+' && data.slice(-1) == '+'){
+        return false;
+    }
+    else if(current.target.innerHTML == '-' && data.slice(-1) == '-'){
+        return false;
+    }
+    else if(current.target.innerHTML == '*' && data.slice(-1) == '*'){
+        return false;
+    }
+    else if(current.target.innerHTML == '/' && data.slice(-1) == '/'){
+        return false;
+    }
+    else if(current.target.innerHTML == '%' && data.slice(-1) == '%'){
+        return false;
+    }
+    else{
+        data = data + current.target.innerHTML;
+            document.querySelector('input').value = data;
+    }
+        })
+    })
+
+    
+</script>
+</html>
