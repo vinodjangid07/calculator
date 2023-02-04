@@ -25,6 +25,9 @@ html {
     font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     cursor:default;
 }
+body{
+    background-color: black;
+}
 .main-container{
     width: 100%;
     height: 100vh;
@@ -135,6 +138,7 @@ html {
     .main-container{
         justify-content: flex-end;
         padding-bottom: 20px;
+        height: 90vh;
     }
     .display-container{
         width: 100%;
@@ -142,7 +146,7 @@ html {
     }
     .screen{
         width: 100%;
-       font-size: 4 rem;
+       font-size: 4rem;
     }
     .button-container{
         width: 100%;
